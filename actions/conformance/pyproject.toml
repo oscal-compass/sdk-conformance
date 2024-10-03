@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conformance"
+version = "0.1.0"
+description = "Test SDK conformance with defined specification."
+authors = [
+  {name = "Jenn Power"},
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["pytest"]
+
+[project.scripts]
+run-conformance-tests = "conformance.__main__:main"
