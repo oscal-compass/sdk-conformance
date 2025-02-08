@@ -1,0 +1,203 @@
+{
+  "assessment-plan": {
+    "uuid": "5fff0b35-4790-47df-8a72-a8ae84f2c3a5",
+    "metadata": {
+      "title": "REPLACE_ME",
+      "last-modified": "2025-02-07T19:45:16.175025-05:00",
+      "version": "0.1.0",
+      "oscal-version": "1.1.2"
+    },
+    "import-ssp": {
+      "href": "REPLACE_ME"
+    },
+    "local-definitions": {
+      "components": [
+        {
+          "uuid": "7390f05c-d2b9-41d5-bf5f-3e6b17032d25",
+          "type": "software",
+          "title": "My Software",
+          "description": "My target software for validation.",
+          "props": [
+            {
+              "name": "Rule_Id",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "rule-1",
+              "remarks": "rule_set_00"
+            },
+            {
+              "name": "Rule_Description",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "My first rule",
+              "remarks": "rule_set_00"
+            },
+            {
+              "name": "Parameter_Id",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "param-1",
+              "remarks": "rule_set_00"
+            },
+            {
+              "name": "Parameter_Description",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "A parameter for a file name",
+              "remarks": "rule_set_00"
+            },
+            {
+              "name": "Parameter_Vault_Default",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "value-1",
+              "remarks": "rule_set_00"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        }
+      ],
+      "activities": [
+        {
+          "uuid": "158b285b-e36b-4354-af3f-674b29204216",
+          "title": "rule-1",
+          "description": "My first rule",
+          "props": [
+            {
+              "name": "method",
+              "value": "TEST"
+            },
+            {
+              "name": "param-1",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal",
+              "value": "value-2",
+              "class": "test-parameter"
+            }
+          ],
+          "steps": [
+            {
+              "uuid": "a2755fa5-4607-4cdf-8ac7-9bca38e4af9a",
+              "title": "check-1",
+              "description": "My first check"
+            }
+          ],
+          "related-controls": {
+            "control-selections": [
+              {
+                "include-controls": [
+                  {
+                    "control-id": "example-1"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "reviewed-controls": {
+      "control-selections": [
+        {
+          "include-controls": [
+            {
+              "control-id": "example-1"
+            }
+          ]
+        }
+      ]
+    },
+    "assessment-subjects": [
+      {
+        "type": "component",
+        "include-subjects": [
+          {
+            "subject-uuid": "7390f05c-d2b9-41d5-bf5f-3e6b17032d25",
+            "type": "component"
+          }
+        ]
+      }
+    ],
+    "assessment-assets": {
+      "components": [
+        {
+          "uuid": "b1c7a388-e8d4-4ff0-a249-0bb6686764cf",
+          "type": "validation",
+          "title": "My Validation Software",
+          "description": "An example validation component.",
+          "props": [
+            {
+              "name": "Rule_Id",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "rule-1",
+              "remarks": "rule_set_00"
+            },
+            {
+              "name": "Rule_Description",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "MY first rule",
+              "remarks": "rule_set_08"
+            },
+            {
+              "name": "Check_Id",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "check-1",
+              "remarks": "rule_set_00"
+            },
+            {
+              "name": "Check_Description",
+              "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+              "value": "My first check",
+              "remarks": "rule_set_00"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          }
+        }
+      ],
+      "assessment-platforms": [
+        {
+          "uuid": "ed7657b3-c50b-4923-8f10-ae01f043a570",
+          "title": "REPLACE_ME",
+          "uses-components": [
+            {
+              "component-uuid": "b1c7a388-e8d4-4ff0-a249-0bb6686764cf"
+            }
+          ]
+        }
+      ]
+    },
+    "tasks": [
+      {
+        "uuid": "0cca9975-b03c-4b29-8c27-d0a707e1340b",
+        "type": "action",
+        "title": "Automated Assessment",
+        "description": "Evaluation of defined rules for applicable components.",
+        "associated-activities": [
+          {
+            "activity-uuid": "158b285b-e36b-4354-af3f-674b29204216",
+            "subjects": [
+              {
+                "type": "component",
+                "include-subjects": [
+                  {
+                    "subject-uuid": "7390f05c-d2b9-41d5-bf5f-3e6b17032d25",
+                    "type": "component"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "subjects": [
+          {
+            "type": "component",
+            "include-subjects": [
+              {
+                "subject-uuid": "7390f05c-d2b9-41d5-bf5f-3e6b17032d25",
+                "type": "component"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -15,9 +15,14 @@
 
 import os
 import pytest  # type: ignore
+import shutil
+import tempfile
+from typing import Generator, TypeVar
 
 from conformance.tests.test_runner import ConformanceTestRunner  # type: ignore
 
+T = TypeVar("T")
+YieldFixture = Generator[T, None, None]
 
 @pytest.fixture(scope="module")
 def runner() -> ConformanceTestRunner:
@@ -26,3 +31,9 @@ def runner() -> ConformanceTestRunner:
     if not root_cmd:
         raise RuntimeError("CONFORMANCE_ENTRYPOINT environment variable is not set.")
     return ConformanceTestRunner(root_cmd)
+
+@pytest.fixture(scope="function")
+def tmp_dir() -> YieldFixture[str]:
+    tmpdir = tempfile.mkdtemp(prefix="runner-test")
+    yield tmpdir
+    shutil.rmtree(tmpdir)
